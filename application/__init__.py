@@ -1,6 +1,13 @@
 import os
 from flask import Flask
+from tinydb import TinyDB
+
 from .app import main_bp
+from config import Config
+
+
+
+
 
 def create_app():
     """Construct the core application."""
@@ -16,4 +23,5 @@ def create_app():
         app.config.from_object('config.DevelopmentConfig')
 
     app.register_blueprint(main_bp)
+    app.db = TinyDB(Config.DATABASE_URI)
     return app
