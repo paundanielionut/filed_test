@@ -41,5 +41,5 @@ def process_payment():
 def estimate_price():
     data = request.json
     sp = StockProcessor(stock_file='dow_jones_index.data')
-    print(sp.X)
+    sp.process_stock()
     return jsonify(sp.dataset.to_json())
