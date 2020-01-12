@@ -1,3 +1,4 @@
+touch db.json
 export FLASK_APP=wsgi.py
 export APP_CONFIG_FILE=config.py
 
