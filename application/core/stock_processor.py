@@ -43,7 +43,7 @@ class StockProcessor(object):
 
         return str(subset.loc[:, ('low', 'high')].mean(axis=1).mean())
 
-    def predict_stock(self, date):
+    def predict_stock(self):
         self.preprocess_stock()
         new_set = pd.DataFrame(columns=['avg'])
         new_set['avg'] = self.dataset.loc[:, ('low', 'high')].mean(axis=1)
@@ -104,4 +104,4 @@ class StockProcessor(object):
 if __name__ == "__main__":
     sp = StockProcessor('dow_jones_index.data')
     # sp.preprocess_stock()
-    sp.predict_stock('2011-01-28')
+    sp.predict_stock()
